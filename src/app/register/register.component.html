@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">     
+      <h3 style="color: white;">Reminder</h3>
+    </div>
+</nav>
+<div class="container">
+    <div class="d-flex justify-content-center body1">
+        <div class="card" style="width: 18rem; border: 0;">
+            <div class="card-body">
+              <h5 class="card-title" style="padding-left: 78px;font-size: 27px;">Sign Up</h5>
+              <form [formGroup]="registerForm">
+                  <div class="p-2">
+                    <label for="">User Id:</label>
+                    <input type="text" placeholder="user id" [(ngModel)]="userid" name="id" class="form-control" formControlName="userid">
+                  </div>
+                  <div style="color: red;font-size: small;" *ngIf="(this.registerForm.get('userid')?.touched||this.registerForm.get('userid')?.dirty)&&this.registerForm.get('userid')?.errors">Invalid User id</div>
+                  <div class="p-2">
+                      <label for="">User Name:</label>
+                      <input type="text" placeholder="user name" [(ngModel)]="username" name="name" class="form-control" formControlName="username">
+                  </div>
+                  <div style="color: red;font-size: small;" *ngIf="(this.registerForm.get('username')?.touched||this.registerForm.get('username')?.dirty)&&this.registerForm.get('username')?.errors">Invalid user name</div>
+                  <div class="p-2">
+                     <label for="">Password:</label>
+                     <input type="password" placeholder="Password" [(ngModel)]="psw" name="psw" class="form-control" formControlName="psw">
+                  </div>
+                  <div style="color: red;font-size: small;" *ngIf="(this.registerForm.get('psw')?.touched||this.registerForm.get('psw')?.dirty)&&this.registerForm.get('psw')?.errors">Invalid Password</div>
+                  <div>
+                      <button class="btn btn-success btn1" (click)="register()">Sign Up</button>
+                      <a style="float: right;" routerLink="">Log In</a>
+                  </div>
+              </form>
+               
+            </div>
+        </div>
+</div>

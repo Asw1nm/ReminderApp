@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+      <h3 style="color: white;">Reminder</h3>
+    </div>
+</nav>
+<div class="container">
+    <div class="d-flex justify-content-center body1">
+        <div class="card" style="width: 18rem;border: 0;">
+            <div class="card-body">
+              <h5 class="card-title" style="padding-left: 78px;font-size: 27px;">Login</h5>
+              <form [formGroup]="loginForm">
+                  <div class=" p-2">
+                      <label for="">User Id:</label>
+                      <input type="text" class="form-control" formControlName="userid" [(ngModel)]="userid" name="id" placeholder="User id">
+                  </div>
+                  <div style="color: red;font-size: small;" *ngIf="(this.loginForm.get('userid')?.touched||this.loginForm.get('userid')?.dirty)&&this.loginForm.get('userid')?.errors">Invalid User id</div>
+                  <div class=" p-2">
+                      <label for="">Password:</label>
+                      <input type="password" class="form-control" formControlName="psw" [(ngModel)]="psw" name="psw" placeholder="password">
+                  </div>
+                  <div style="color: red;font-size: small;" *ngIf="(this.loginForm.get('psw')?.touched||this.loginForm.get('psw')?.dirty)&&this.loginForm.get('psw')?.errors">Invalid password</div>
+                  <div>
+                      <button class="btn btn-success btn1" (click)="login()">Log in</button>
+                      <a style="float: right;" routerLink="register">Sign Up</a>
+                  </div>
+              </form>
+               
+            </div>
+        </div>
+    </div>
+</div>

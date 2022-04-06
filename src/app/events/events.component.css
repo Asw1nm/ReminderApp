@@ -1,0 +1,10 @@
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+#row{
+    border: solid white;
+}
+th{
+    border: solid white;
+}
