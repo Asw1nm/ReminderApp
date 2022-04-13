@@ -1,31 +1,36 @@
 <nav class="navbar navbar-light bg-dark">
-    <div class="container-fluid">
-      <h3 style="color: white;">Reminder</h3>
+    <div class="container-fluid" style="justify-content: normal;">
+      <img src="assets/bell-icon.png" style="width: 33px;" alt="">
+      <h2>Reminder</h2>
     </div>
 </nav>
-<div class="container">
-  <h1 style="color: white;">user : {{user}}</h1>
-  <button class="btn btn-success" (click)="logout()" style="float: right;">Log Out</button>
-    <div class="d-flex justify-content-center mt-5">
-       <div class="card text-center" style="border: 0;">
-         <div class="card-header" style="background-color: black;color: white;border: solid 1px;">
-           Create Reminder
-         </div>
-         <form>
-             <div class="card-body" style="width: 20rem;">
-               <label for="">Date:</label>
-               <input type="text" class="form-control"  [(ngModel)]="date" name="date" placeholder="Date: D/M/Y" required>
-               <label for="">Event:</label>
-               <textarea name="" placeholder="Event description" cols="35" rows="5" [(ngModel)]="event" name="event"></textarea>
-               
-             <button class="btn btn-success" (click)="addEvent()">Add Event</button>
-             <a routerLink="/events" style="float: right;">View Events</a>
-             </div>
-         </form>
-         <!-- <div class="card-footer text-muted">
-           2 days ago
-         </div> -->
+<div>
 
+  <h5 style="padding-left: 1282px;display: block;">Logged in as {{user}}</h5>
+  <button class="btn btn-success" (click)="logout()" style="float: right;margin-right: 110px;">Log Out</button>
+  <div class="container">
+    
+      <div class="d-flex justify-content-center mt-5">
+         <div class="card text-center" style="border: 0;">
+           <div class="card-header" style="background-color: black;color: white;border: solid 1px;">
+             Create Reminder
+           </div>
+           <form>
+               <div class="card-body" style="width: 20rem;">
+                 <label for="">Date:</label>
+                 <input type="text" class="form-control"  [(ngModel)]="date" name="date" placeholder="Date: D/M/Y" required>
+                 <label for="">Event:</label>
+                 <textarea name="" placeholder="Event description" cols="35" rows="5" [(ngModel)]="event" name="event"></textarea>
+                 
+               <button class="btn btn-success" (click)="addEvent()">Add Event</button>
+               <a routerLink="/events" style="float: right;">View Events</a>
+               </div>
+           </form>
+           <!-- <div class="card-footer text-muted">
+             2 days ago
+           </div> -->
+  
+         </div>
        </div>
-     </div>
- </div>
+   </div>
+</div>

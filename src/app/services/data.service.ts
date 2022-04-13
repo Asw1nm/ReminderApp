@@ -52,5 +52,19 @@ export class DataService {
   }
   return this.http.post('http://localhost:3000/events',data,this.getOptions())
 }
+
+  deleteEvent(event:any,userid:any){
+    const data ={
+      event,userid
+    }
+    return this.http.post('http://localhost:3000/deleteEvent',data,this.getOptions())
+  }
   
+  update(uid:any,indexNum:any,edate:any,eventd:any){
+    const data ={
+      uid,indexNum,edate,eventd
+    }
+    return this.http.post('http://localhost:3000/updateEvent',data,this.getOptions())
+  }
+
 }

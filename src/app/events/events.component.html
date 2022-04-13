@@ -1,21 +1,48 @@
 <nav class="navbar navbar-light bg-dark">
-    <div class="container-fluid">
-      <h3 style="color: white;">Reminder</h3>
+    <div class="container-fluid" style="justify-content: normal;">
+        <img src="assets/bell-icon.png" style="width: 33px;" alt="">
+        <h2>Reminder</h2>
     </div>
 </nav>
 <h1 style="text-align: center;">Events</h1>
-<table class="center" style="width: 400px;">
-    <thead>
-        <tr id="row">
-            <th>Date</th>
-            <th>Event</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr id="row" *ngFor="let event of events">
-            <th>{{event.date}}</th>
-            <th>{{event.event}}</th>
-        </tr>
-    </tbody>
-   
-</table>
+<div>
+    <table class="center" style="width: 400px;">
+        <thead>
+            <tr id="row">
+                <th>id</th>
+                <th>Date</th>
+                <th>Event</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row" *ngFor="let event of events; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{event.date}}</td>
+                <td>{{event.events}}</td>
+                <td><button (click)="deleteEvent(event.events)">Delete</button></td>
+                <td><button (click)="updateEvent(i,event.date,event.events)">Edit</button></td>
+            </tr>
+        </tbody>
+       
+    </table>
+</div>
+<div id="editDiv" style="display: none;">
+   <table class="center">
+       <tr>
+           <td>Date</td>
+           <td>Event</td>
+       </tr>
+       <tbody>
+           <tr>
+               <input type="hidden" name="" [(ngModel)]="indexNum">
+               <td>
+                   <input type="text" [(ngModel)]="edate">
+               </td>
+               <td>
+                   <input type="text" [(ngModel)]="eventd">
+               </td>
+               <td><button (click)="update(indexNum,edate,eventd)">Update</button></td>
+           </tr>
+       </tbody>
+   </table>
+</div>
