@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   }
  
   login(){
-    var userid = this.userid
-    var psw = this.psw
+    var userid = this.loginForm.value.userid
+    var psw = this.loginForm.value.psw
 
     this.ds.login(userid,psw)
     .subscribe((result:any)=>{

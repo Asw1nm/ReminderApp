@@ -12,12 +12,12 @@
               <form [formGroup]="loginForm">
                   <div class=" p-2">
                       <label for="">User Id:</label>
-                      <input type="text" class="form-control" formControlName="userid" [(ngModel)]="userid" name="id" placeholder="User id">
+                      <input type="text" class="form-control" formControlName="userid"  name="id" placeholder="User id">
                   </div>
                   <div style="color: red;font-size: small;" *ngIf="(this.loginForm.get('userid')?.touched||this.loginForm.get('userid')?.dirty)&&this.loginForm.get('userid')?.errors">Invalid User id</div>
                   <div class=" p-2">
                       <label for="">Password:</label>
-                      <input type="password" class="form-control" formControlName="psw" [(ngModel)]="psw" name="psw" placeholder="password">
+                      <input type="password" class="form-control" formControlName="psw"  name="psw" placeholder="password">
                   </div>
                   <div style="color: red;font-size: small;" *ngIf="(this.loginForm.get('psw')?.touched||this.loginForm.get('psw')?.dirty)&&this.loginForm.get('psw')?.errors">Invalid password</div>
                   <div>
