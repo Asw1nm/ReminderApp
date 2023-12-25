@@ -9,10 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  userid=""
-  psw=""
-
+  
   loginForm=this.fb.group({
     userid:['',[Validators.required,Validators.pattern('[0-9]*')]],
     psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]

@@ -23,6 +23,8 @@ constructor(private ds:DataService) {
   .subscribe((result:any)=>{
      if(result){
        this.events = result.eventDet
+       console.log(this.events);
+       
      }
   },
   (result)=>{

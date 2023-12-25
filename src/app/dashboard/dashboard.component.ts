@@ -9,6 +9,8 @@ import { DataService } from '../services/data.service';
 })
 export class DashboardComponent implements OnInit {
   user:any
+  notiMsg: any
+
   constructor(private router:Router,private ds:DataService) { 
     if(localStorage.getItem('currentUname')){
       this.user =JSON.parse(localStorage.getItem('currentUname')||'')
@@ -20,25 +22,32 @@ export class DashboardComponent implements OnInit {
       alert("please log in")
       this.router.navigateByUrl("")
     }
+    this.getNotification()
   }
  
  date=""
  event=[]
  userid = JSON.parse(localStorage.getItem('currentUid')||'')
   addEvent(){
+    var date=this.date
+    var event=this.event
+    var userid = this.userid
+    this.ds.addEvent(date,event,userid)
+    .subscribe((result:any)=>{
+      if(result){
+        alert(result.message)
+      }
+    },
+    (result)=>{
+      alert(result.error.message)
+    })
+  }
 
-      var date=this.date
-      var event=this.event
-      var userid = this.userid
-      this.ds.addEvent(date,event,userid)
-      .subscribe((result:any)=>{
-        if(result){
-          alert(result.message)
-        }
-      },
-      (result)=>{
-        alert(result.error.message)
-      })
+  getNotification() {
+    this.ds.getNotification().subscribe(res=>{
+      console.log(res);
+      
+    })
   }
   
   logout(){

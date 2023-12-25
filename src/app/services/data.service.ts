@@ -67,4 +67,8 @@ export class DataService {
     return this.http.post('http://localhost:3000/updateEvent',data,this.getOptions())
   }
 
+  getNotification() {
+    return this.http.get('http://localhost:3000/getNoti')
+  }
+
 }
